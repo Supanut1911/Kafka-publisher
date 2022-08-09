@@ -16,17 +16,20 @@ export class KafkaService implements OnModuleInit {
   async publish() {
     try {
       await this.producer.send({
-        topic: 'xxxx',
+        topic: 'test',
         messages: [
           {
             value: 'sss',
           },
         ],
       });
+      return `publish success`;
     } catch (error) {
       console.log(`error ${error}`);
     }
   }
 
-  async onApplicationShutdown(signal: string) {}
+  async onApplicationShutdown(signal: string) {
+    await this.producer.disconnect();
+  }
 }

@@ -7,8 +7,6 @@ export class KafkaController {
 
   @Get()
   async publish() {
-    console.log('hi');
-
     return this.kafkaService.publish();
   }
 }
