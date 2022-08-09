@@ -9,7 +9,7 @@ import {
 @Injectable()
 export class ConsumerService implements OnModuleInit {
   private kafka: Kafka = new Kafka({
-    brokers: ['127.0.0.1:9092'],
+    brokers: ['127.0.0.1:9092', '127.0.0.1:9093', '127.0.0.1:9094'],
   });
 
   private readonly consumers: Consumer[] = [];

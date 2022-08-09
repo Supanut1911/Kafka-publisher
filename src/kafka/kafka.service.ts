@@ -1,11 +1,11 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { Kafka, Producer } from 'kafkajs';
+import { Kafka, Producer, ProducerRecord } from 'kafkajs';
 
 @Injectable()
 export class KafkaService implements OnModuleInit {
   private kafka: Kafka = new Kafka({
     clientId: 'my-app',
-    brokers: ['127.0.0.1:9092'],
+    brokers: ['127.0.0.1:9092', '127.0.0.1:9093', '127.0.0.1:9094'],
   });
   private producer: Producer = this.kafka.producer();
 
@@ -13,7 +13,7 @@ export class KafkaService implements OnModuleInit {
     await this.producer.connect();
   }
 
-  async publish() {
+  async publish(record?: ProducerRecord) {
     try {
       await this.producer.send({
         topic: 'test',
