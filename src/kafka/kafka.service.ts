@@ -5,7 +5,8 @@ import { Kafka, Producer, ProducerRecord } from 'kafkajs';
 export class KafkaService implements OnModuleInit {
   private kafka: Kafka = new Kafka({
     clientId: 'my-app',
-    brokers: ['127.0.0.1:9092', '127.0.0.1:9093', '127.0.0.1:9094'],
+    // brokers: ['127.0.0.1:9092', '127.0.0.1:9093', '127.0.0.1:9094'],
+    brokers: ['127.0.0.1:9092'],
   });
   private producer: Producer = this.kafka.producer();
 
