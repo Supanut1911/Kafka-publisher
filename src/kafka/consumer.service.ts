@@ -10,6 +10,8 @@ import {
 export class ConsumerService implements OnModuleInit {
   private kafka: Kafka = new Kafka({
     // brokers: ['127.0.0.1:9092', '127.0.0.1:9093', '127.0.0.1:9094'],
+    // brokers: ['http://kafka.finstable.co.th/'],
+    // brokers: ['54.255.182.90:9092'],
     brokers: ['127.0.0.1:9092'],
   });
 
