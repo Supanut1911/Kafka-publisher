@@ -32,4 +32,6 @@ export class ConsumerService implements OnModuleInit {
       await consumer.disconnect();
     }
   }
+
+  async validatePayload() {}
 }
