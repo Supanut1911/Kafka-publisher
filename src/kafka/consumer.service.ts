@@ -27,10 +27,12 @@ export class ConsumerService implements OnModuleInit {
     this.consumers.push(consumer);
   }
 
-  async onApplicationShutdown(signal: string) {
-    for (const consumer of this.consumers) {
-      await consumer.disconnect();
-    }
+  async onApplicationShutdown(payload: any) {
+    const res = JSON.parse(payload);
+    console.log(
+      '🚀 ~ file: consumer.service.ts ~ line 32 ~ ConsumerService ~ onApplicationShutdown ~ res',
+      res,
+    );
   }
 
   async validatePayload() {}
